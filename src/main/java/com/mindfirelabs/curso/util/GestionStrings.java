@@ -2,7 +2,7 @@ package com.mindfirelabs.curso.util;
 
 public class GestionStrings {
     
-    public String validarCadena(String cadena) {
+    public static String validarCadena(String cadena) {
         if(cadena.isEmpty()) {
             return "El campo no puede estar vacio";
         }

@@ -2,6 +2,7 @@ package com.mindfirelabs.curso.business;
 
 import com.mindfirelabs.curso.dao.CatSalonesDAO;
 import com.mindfirelabs.curso.entity.CatSalones;
+import com.mindfirelabs.curso.util.GestionStrings;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -81,4 +82,16 @@ public class CatSalonesBusiness {
         return dao.obtenerSalonPorId(id);
     }
     
+    private void validar(CatSalones entity) {
+        if(entity.getNombre() != null) {
+            if(GestionStrings.validarCadena(entity.getNombre()) != null) {
+                return;
+            }
+        }
+        if(entity.getDescripcion() != null) {
+            if(GestionStrings.validarCadena(entity.getDescripcion()) != null) {
+                return;
+            }
+        }
+    }
 }
