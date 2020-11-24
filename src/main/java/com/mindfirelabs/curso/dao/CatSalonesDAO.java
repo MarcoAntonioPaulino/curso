@@ -1,8 +1,8 @@
 package com.mindfirelabs.curso.dao;
 
 import com.mindfirelabs.curso.entity.CatSalones;
-import com.mindfirelabs.curso.util.Persistence;
-import com.mindfirelabs.curso.util.SystemEntityManager;
+import com.mindfirelabs.curso.configuration.Persistence;
+import com.mindfirelabs.curso.configuration.SystemEntityManager;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;

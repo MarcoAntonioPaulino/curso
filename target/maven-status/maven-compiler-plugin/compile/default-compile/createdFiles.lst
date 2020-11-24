@@ -1,8 +1,8 @@
 com/mindfirelabs/curso/business/CatSalonesBusiness.class
+com/mindfirelabs/curso/configuration/Persistence.class
 com/mindfirelabs/curso/dao/CatSalonesDAO.class
-com/mindfirelabs/curso/util/Persistence.class
+com/mindfirelabs/curso/configuration/SystemEntityManager.class
 com/mindfirelabs/curso/controller/CatSalonesController.class
 com/mindfirelabs/curso/view/CatSalonesView.class
 com/mindfirelabs/curso/entity/CatSalones.class
-com/mindfirelabs/curso/util/SystemEntityManager.class
 com/mindfirelabs/curso/entity/CatSalones_.class
