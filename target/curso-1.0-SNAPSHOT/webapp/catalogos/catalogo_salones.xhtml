@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content">
+                <h:form id="form">
+
+                    <!-- Inicio del fragment para mostrar la tabla de resultados -->
+                    <p:fragment rendered="#{catSalonesController.view.entity == null and catSalonesController.view.listEntity != null}">
+                        
+                        <!-- Inicio Buscador -->
+                        <p:fragment>
+                            <div class="ui-g-nopad" style="margin-bottom: 10px;">
+                                <div class="ui-g-10">
+                                    <p:inputText value="#{catSalonesController.view.textoBusqueda}" 
+                                                 placeholder="Escribe un nombre o una descripcion para realizar una busqueda"
+                                                 style="width: 100%;"/>
+                                </div>
+                                <div class="ui-g-2">
+                                    <p:commandButton value="Buscar" 
+                                                     icon="pi pi-search"
+                                                     style="width: 100%;"
+                                                     action="#{catSalonesController.accionBuscar()}"
+                                                     update="tblResultados"/>
+                                </div>
+                            </div>
+                        </p:fragment>
+                        <!-- Fin Buscador -->
+                        
+                        <!-- Inicio Tabla -->
+                        <div class="ui-g-nopad">
+                            <div class="ui-g-12">
+                                <p:dataTable id="tblResultados" var="salon" 
+                                             value="#{catSalonesController.view.listEntity}"
+                                             emptyMessage="">
+                                    <p:column headerText="Nombre">
+                                        <p:outputLabel value="#{salon.nombre}"/>
+                                    </p:column>
+                                    <p:column headerText="Descripcion">
+                                        <p:outputLabel value="#{salon.descripcion}"/>
+                                    </p:column>
+                                    <p:column headerText="Acciones" style="text-align: center;">
+                                        <p:commandButton icon="pi pi-pencil" action="#{catSalonesController.mostrarEditar(salon)}"
+                                                         update="form" style="margin-right: 5px;"/>
+                                        <p:commandButton icon="pi pi-trash" action="#{catSalonesController.accionEliminar(salon)}"
+                                                         update="form" style="margin-left: 5px;">
+                                            <p:confirm header="Confirmar accion" message="El registro sera eliminado desea continuar"/>
+                                        </p:commandButton>
+                                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                            <p:commandButton type="button" value="Cancelar" styleClass="ui-confirmdialog-no" icon="pi pi-times"/>
+                                            <p:commandButton type="button" value="Continuar" styleClass="ui-confirmdialog-yes" icon="pi pi-check"/>
+                                        </p:confirmDialog>
+                                    </p:column>
+                                    <f:facet name="footer">
+                                        <p:outputLabel value="Sin resultados" rendered="#{catSalonesController.view.listEntity.size() == 0 and (catSalonesController.view.textoBusqueda == null or catSalonesController.view.textoBusqueda.length() == 0)}"/>
+                                        <p:outputLabel value="Resultados encontrados #{catSalonesController.view.listEntity.size()}" rendered="#{catSalonesController.view.listEntity.size() > 0}"/>
+                                        <p:outputLabel value="Sin resultados para la busqueda '#{catSalonesController.view.textoBusqueda}'" rendered="#{catSalonesController.view.listEntity.size() == 0 and catSalonesController.view.textoBusqueda.length() > 0}"/>
+                                    </f:facet>
+                                </p:dataTable>
+                            </div>
+                        </div>
+                        <!-- Fin Tabla -->
+                        
+                        <!-- Inicio Boton -->
+                        <div class="ui-g-nopad" style="padding-top: 10px;">
+                            <div class="ui-g-10"></div>
+                            <div class="ui-g-2">
+                                <p:commandButton value="Nuevo" 
+                                                 action="#{catSalonesController.mostrarNuevo()}"
+                                                 update="form"
+                                                 icon="pi pi-plus"
+                                                 style="width: 100%;"/>
+                            </div>
+                        </div>
+                        <!-- Fin Boton -->
+                        
+                    </p:fragment>
+                    <!-- Fin del fragment para mostrar la tabla de resultados -->
+
+                    <!-- Inicio del fragment para mostrar el formulario para registrar o modificar un salon -->
+                    <p:fragment rendered="#{catSalonesController.view.entity != null and catSalonesController.view.listEntity == null}">
+                        
+                        <!-- Inicio Formulario -->
+                        <div class="ui-g-nopad">
+                            <div class="ui-g-4"></div>
+                            <div class="ui-g-4">
+                                <div class="ui-g-nopad" style="margin-bottom: 10px;">
+                                    <p:outputLabel for="nombre" value="Nombre"/>
+                                    <p:inputText id="nombre" 
+                                                 value="#{catSalonesController.view.entity.nombre}" 
+                                                 required="true"
+                                                 requiredMessage="Este campo es obligatorio"
+                                                 style="width: 100%; margin-top: 5px;"/>
+                                    <p:message for="nombre" style="width: 100%; margin-top: 5px;"/>
+                                </div>
+                                <div class="ui-g-nopad" style="margin-top: 10px;">
+                                    <p:outputLabel for="descripcion" value="Descripcion"/>
+                                    <p:inputText id="descripcion" 
+                                                 value="#{catSalonesController.view.entity.descripcion}" 
+                                                 required="true"
+                                                 requiredMessage="Este campo es obligatorio"
+                                                 style="width: 100%; margin-top: 5px;"/>
+                                    <p:message for="descripcion" style="width: 100%; margin-top: 5px;"/>
+                                </div>
+                                <div class="ui-g-nopad" style="margin-top: 5px;">
+                                    <div class="ui-g-6" style="padding-left: 0;">
+                                        <p:commandButton value="Cancelar" 
+                                                         action="#{catSalonesController.mostrarLista()}"
+                                                         icon="pi pi-times"
+                                                         update="form"
+                                                         immediate="true"
+                                                         style="width: 100%;"/>
+                                    </div>
+                                    <div class="ui-g-6" style="padding-right: 0;">
+                                        <p:commandButton value="Guardar"
+                                                         action="#{catSalonesController.accionGuardar()}"
+                                                         icon="pi pi-save"
+                                                         update="form"
+                                                         style="width: 100%;"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-g-4"></div>
+                        </div>
+                        <!-- Fin Formulario -->
+                        
+                    </p:fragment>
+                    <!-- Fin del fragment para mostrar la tabla de resultados -->
+
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
