@@ -5,4 +5,5 @@ com/mindfirelabs/curso/configuration/SystemEntityManager.class
 com/mindfirelabs/curso/controller/CatSalonesController.class
 com/mindfirelabs/curso/view/CatSalonesView.class
 com/mindfirelabs/curso/entity/CatSalones.class
+com/mindfirelabs/curso/util/GestionStrings.class
 com/mindfirelabs/curso/entity/CatSalones_.class

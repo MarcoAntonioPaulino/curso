@@ -59,7 +59,7 @@
                                     <f:facet name="footer">
                                         <p:outputLabel value="Sin resultados" rendered="#{catSalonesController.view.listEntity.size() == 0 and (catSalonesController.view.textoBusqueda == null or catSalonesController.view.textoBusqueda.length() == 0)}"/>
                                         <p:outputLabel value="Resultados encontrados #{catSalonesController.view.listEntity.size()}" rendered="#{catSalonesController.view.listEntity.size() > 0}"/>
-                                        <p:outputLabel value="Sin resultados para la busqueda '#{catSalonesController.view.textoBusqueda}'" rendered="#{catSalonesController.view.listEntity.size() == 0 and catSalonesController.view.textoBusqueda.length() > 0}"/>
+                                        <p:outputLabel value="Sin resultados para la busqueda &quot;#{catSalonesController.view.textoBusqueda}&quot;" rendered="#{catSalonesController.view.listEntity.size() == 0 and catSalonesController.view.textoBusqueda.length() > 0}"/>
                                     </f:facet>
                                 </p:dataTable>
                             </div>
