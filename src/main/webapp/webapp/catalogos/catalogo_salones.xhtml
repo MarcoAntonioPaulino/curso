@@ -46,9 +46,9 @@
                                     </p:column>
                                     <p:column headerText="Acciones" style="text-align: center;">
                                         <p:commandButton icon="pi pi-pencil" action="#{catSalonesController.mostrarEditar(salon)}"
-                                                         update="form" style="margin-right: 5px;"/>
+                                                         update="form" class="warning" style="margin-right: 5px;"/>
                                         <p:commandButton icon="pi pi-trash" action="#{catSalonesController.accionEliminar(salon)}"
-                                                         update="form" style="margin-left: 5px;">
+                                                         update="form" class="danger" style="margin-left: 5px;">
                                             <p:confirm header="Confirmar accion" message="El registro sera eliminado desea continuar"/>
                                         </p:commandButton>
                                         <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
@@ -114,6 +114,7 @@
                                                          icon="pi pi-times"
                                                          update="form"
                                                          immediate="true"
+                                                         class="danger"
                                                          style="width: 100%;"/>
                                     </div>
                                     <div class="ui-g-6" style="padding-right: 0;">

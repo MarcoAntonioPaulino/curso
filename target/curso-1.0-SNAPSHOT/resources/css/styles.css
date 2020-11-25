@@ -1,0 +1,101 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/11/2020, 04:24:01 PM
+    Author     : Marco Antonio Paulino Perez
+*/
+
+/*Buttons*/
+
+body .ui-button {
+    font-weight: bold;
+}
+
+body .ui-button.ui-state-hover {
+    background-color: #3730A3;
+    border-color: #3730A3;
+}
+
+body .ui-button.ui-state-active {
+    background-color: #3730A3;
+    border-color: #3730A3;
+}
+
+body .ui-button.ui-state-default {
+    background-color: #3730A3;
+    border-color: #3730A3;
+}
+
+/*Succes button*/
+body .ui-button.ui-state-hover.success {
+    background-color: #10B981;
+    border-color: #10B981;
+}
+
+body .ui-button.ui-state-active.success {
+    background-color: #10B981;
+    border-color: #10B981;
+}
+
+body .ui-button.ui-state-default.success {
+    background-color: #10B981;
+    border-color: #10B981;
+}
+
+/*Warning button*/
+
+body .ui-button.ui-state-hover.warning {
+    background-color: #FBBF24;
+    border-color: #FBBF24;
+}
+
+body .ui-button.ui-state-active.warning {
+    background-color: #FBBF24;
+    border-color: #FBBF24;
+}
+
+body .ui-button.ui-state-default.warning {
+    background-color: #FBBF24;
+    border-color: #FBBF24;
+}
+
+/*Danger button*/
+
+body .ui-button.ui-state-hover.danger {
+    background-color: #DC2626;
+    border-color: #DC2626;
+}
+
+body .ui-button.ui-state-active.danger {
+    background-color: #DC2626;
+    border-color: #DC2626;
+}
+
+body .ui-button.ui-state-default.danger {
+    background-color: #DC2626;
+    border-color: #DC2626;
+}
+
+/* Inputs */
+body .ui-inputfield {
+    border-color: #BE185D;
+}
+
+body .ui-inputfield.ui-state-hover {
+    border-color: #3730A3;
+}
+
+body .ui-inputfield.ui-state-active {
+    border-color: #3730A3;
+}
+
+body .ui-inputfield.ui-state-default {
+    border-color: #3730A3;
+}
+
+body .ui-inputfield.ui-state-focus:not(.ui-state-error) {
+    border-color: #3730A3;
+}
