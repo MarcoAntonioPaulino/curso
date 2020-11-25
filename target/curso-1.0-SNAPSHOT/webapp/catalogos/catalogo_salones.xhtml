@@ -37,7 +37,8 @@
                             <div class="ui-g-12">
                                 <p:dataTable id="tblResultados" var="salon" 
                                              value="#{catSalonesController.view.listEntity}"
-                                             emptyMessage="">
+                                             emptyMessage=""
+                                             paginator="true" paginatorPosition="top" rows="5">
                                     <p:column headerText="Nombre">
                                         <p:outputLabel value="#{salon.nombre}"/>
                                     </p:column>
